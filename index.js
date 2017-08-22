@@ -1,5 +1,1 @@
-addHeaders({
-    'code':'302',
-    'Location' : '/tests'
-});
-exit();
+exit("I'll be the unwatched.ml core file!");
