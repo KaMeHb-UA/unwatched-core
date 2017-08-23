@@ -1,4 +1,4 @@
-var templates = require('./.modules/templates');
+var polymorph = require('./.modules/polymorph');
 module.exports = {
     defaultIndex : /* Default single index file settings */{
         executable : false, // do execute?,
@@ -20,8 +20,7 @@ module.exports = {
     ],
     preventImplicitTransfer : 'isFileExecutable, stats, err, url, tmpStack, indexes, retFirstIndex, i, foundIndex, pH, headersClosed, app', // List of variables to prevent implicit passing to the page (to not prevent, clear this list)
     additionalModules : {
-        polymorph : require('./.modules/polymorph').mainInterface,
-        Template : templates.sync,
-        createTemplate : templates.async,
+        polymorph : polymorph.mainInterface,
     },
+    enableFTP : true,
 }
