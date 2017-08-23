@@ -5,19 +5,38 @@ Author: Влад KaMeHb Марченко
 License: MIT [ http://www.opensource.org/licenses/mit-license.php ]
 */
 
-var fs = require('fs');
-
-module.exports = function(template, encoding, replacements){
+var fs = require('fs'),
+	exports = module.exports = {};
+function Template(){
 	this.replace = function(from, to){
 		this.text = this.text.replace('{' + from + '}', to);
 	}
+};
+exports.sync = function(template, encoding, replacements){
+	var a = new Template();
 	try {
-		this.text = fs.readFileSync('./templates/' + template + '.tpl', encoding);
+		a.text = fs.readFileSync('./templates/' + template + '.tpl', encoding);
 	} catch(e){
-		this.text = '';
+		a.text = '';
 		console.error('LeNode error (1): cannot read template ' + template);
 	}
 	for(var i in replacements){
-		this.replace(i, replacements[i]);
+		a.replace(i, replacements[i]);
 	}
+	return a;
+};
+exports.async = function(template, encoding, replacements, callback){
+	fs.readFile('./templates/' + template + '.tpl', encoding, function(err, contents){
+		if(!err){
+			var ret = new Template();
+			ret.text = contents;
+			for(var i in replacements){
+				ret.replace(i, replacements[i]);
+			}
+			callback(null, ret);
+		} else {
+			console.error('LeNode error (1): cannot read template ' + template);
+			callback(err, null);
+		}
+	});
 };
