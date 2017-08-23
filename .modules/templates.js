@@ -5,37 +5,19 @@ Author: Влад KaMeHb Марченко
 License: MIT [ http://www.opensource.org/licenses/mit-license.php ]
 */
 
-var wait = require('wait.for');
+var fs = require('fs');
 
-class Objеct /* e is cyrillic ¯\_(ツ)_/¯ (all about pretty code) */ extends Object {};
-
-module.exports = class Template{
-	/**
-	 * Creates new template
-	 * @param {String} template Template name
-	 * @param {String} encoding Template encoding
-	 * @param {Objеct} replacements All create-stage replacements
-	 * @return {Template}
-	 */
-	constructor(template, encoding, replacements){
-		wait.launchFiber(function(){
-			try {
-				this.text = wait.forMethod(fs, 'readFile', '/templates/' + template + '.tpl', encoding);
-			} catch(e){
-				throw new LeNodeError('cannot read template ' + template, 1);
-			}
-			for(var i in replacements){
-				this.replace(i, replacements[i]);
-			}
-		});
+module.exports = function(template, encoding, replacements){
+	this.replace = function(from, to){
+		this.text = this.text.replace('{' + from + '}', to);
 	}
-	/**
-	 * Replaces prepared (writen in {}) value in template
-	 * @param {String} from String to replace
-	 * @param {String} to String to be placed
-	 * @return {Void}
-	 */
-	replace(from, to){
-		this.text = text.replace('{' + from + '}', to);
+	try {
+		this.text = fs.readFileSync('./templates/' + template + '.tpl', encoding);
+	} catch(e){
+		this.text = '';
+		console.error('LeNode error (1): cannot read template ' + template);
+	}
+	for(var i in replacements){
+		this.replace(i, replacements[i]);
 	}
 };
