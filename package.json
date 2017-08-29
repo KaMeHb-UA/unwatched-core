@@ -1,0 +1,17 @@
+{
+    "name": "unwatched",
+    "version": "1.0.0-pr",
+    "main": "./server.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/KaMeHb-UA/unwatched-core.git"
+    },
+    "description": "",
+    "license": "MIT",
+    "keywords": [
+        "lenode"
+    ],
+    "dependencies": {
+        "ftp-srv": "^2.11.2"
+    }
+}
