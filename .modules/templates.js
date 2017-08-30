@@ -10,6 +10,13 @@ var fs = require('fs'),
 function Template(){
 	this.replace = function(from, to){
 		this.text = this.text.replace('{' + from + '}', to);
+		return this.text;
+	}
+	this.do = function(what = {}){
+		for(var i in what){
+			this.replace(i, what[i]);
+		}
+		return this.text;
 	}
 };
 exports.sync = function(template, encoding, replacements){
