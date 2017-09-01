@@ -13,6 +13,8 @@
     ],
     "dependencies": {
         "ftp-srv": "^2.11.2",
-        "mkdirp": "^0.5.1"
+        "mkdirp": "^0.5.1",
+        "nodemon": "^1.11.0",
+        "node-datetime": "^2.0.0"
     }
 }
