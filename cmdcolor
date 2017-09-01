@@ -1,4 +1,4 @@
-#!/bin/bash
+#bash
 original_string="$1"
 string_to_replace="\\\\"
 result_string="${original_string/\\/$string_to_replace}"
