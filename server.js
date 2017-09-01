@@ -4,7 +4,7 @@ if (/^win/.test(process.platform)) spawn('cmd', ['/s', '/c', 'node nodemon | cmd
     /*
     spawn('node', ['nodemon'],{stdio:'inherit'});
     /*/
-    require('fs').chmodSync('./cmdcolor', '+x');    
+    require('fs').chmodSync('./cmdcolor', 0o777);    
     spawn('bash', ['-c','"node nodemon | ./cmdcolor"'],{stdio:'inherit'});
     //*/
 }
