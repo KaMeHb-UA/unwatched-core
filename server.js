@@ -4,6 +4,6 @@ if (/^win/.test(process.platform)) spawn('cmd', ['/s', '/c', 'node nodemon | cmd
     /*
     spawn('node', ['nodemon'],{stdio:'inherit'});
     /*/
-    spawn('/bin/bash', ['exec "node nodemon >> ./cmdcolor 2>&1"'],{stdio:'inherit'});
+    spawn('bash', ['exec "node nodemon >> ./cmdcolor 2>&1"'],{stdio:'inherit'});
     //*/
 }
