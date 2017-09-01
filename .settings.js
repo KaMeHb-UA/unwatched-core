@@ -22,6 +22,7 @@ module.exports = {
         polymorph : require('./.modules/polymorph').mainInterface,
         Template : templates.sync,
         createTemplate : templates.async,
+        Base64 : {encode:function(what){return Buffer.from(what).toString('base64')},decode:function(what,to='utf8'){return Buffer.from(what,'base64').toString(to)}},
     },
     enableFTP : true,
 }

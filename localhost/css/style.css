@@ -1,0 +1,13 @@
+:root{
+    --bgcolor: #e8e8e8;
+    --textcolor: #3a3a3a;
+    --linkcolor: #005E6D;
+}
+html{
+    background-color: var(--bgcolor);
+    color: var(--textcolor);
+}
+a:visited, a{
+    color: var(--linkcolor);
+    text-decoration: none;
+}

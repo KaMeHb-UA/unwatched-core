@@ -1,0 +1,7 @@
+[
+    [ /.*\/\.indexes\/*$/, '/403.code' ],
+    [ /^\/?\.router\.js\/*$/, '/403.code' ],
+    [ /^\/*(api\/.*)\/*$/, '/$1.js', true ],
+    [ /^\/*(js\/.*\.js)\/*$/, '/$1', false /* all .js files in /js/ are now not executable from own url and urls with slashes at the end */],
+    [ /^(.*\.js)\/*$/, '$1', true /* all other .js files are now executable from own url and urls with slashes at the end */],
+]

@@ -1,7 +1,13 @@
 createTemplate('unwatchedProfile', 'utf8', {
-    text : "I'll be the unwatched.ml core file!",
+    title : "Core file",
+    favicon : "/favicon.ico",
+    mainCSSFile : "/css/style.css",
+    mainJSFile : "/js/main.js",
 }, function(err, tpl){
     if (!err){
+        tpl.do({
+            text : "I'll be the core file!",
+        });
         exit(tpl.text);
     }
 });
