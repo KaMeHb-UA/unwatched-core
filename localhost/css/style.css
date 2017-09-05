@@ -2,6 +2,8 @@
     --bgcolor: #e8e8e8;
     --textcolor: #3a3a3a;
     --linkcolor: #005E6D;
+    --main-menu-width: 28%;
+    --min-main-menu-width: 280px;
 }
 html{
     background-color: var(--bgcolor);
@@ -10,4 +12,45 @@ html{
 a:visited, a{
     color: var(--linkcolor);
     text-decoration: none;
+}
+body, body *{
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+#main-menu-wrapper{
+    width: var(--main-menu-width);
+    min-width: var(--min-main-menu-width);
+    height: 100%;
+}
+#main-menu-wrapper > div{
+    width: inherit;
+    min-width: inherit;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #D8D8D8;
+}
+#body{
+    width: 46%;
+    height: 110%;
+    background-color: #A79BFF;
+}
+#right-side{
+    width: 26%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 74%;
+    background-color: #9BF5FF;
+}
+#main-menu{
+    background-color: rgba(103, 227, 131, 0.45);
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+}
+#main-menu > li{
+    margin: 25px;
 }

@@ -1,8 +1,9 @@
 createTemplate('unwatchedProfile', 'utf8', {
-    title : "Core file",
-    favicon : "/favicon.ico",
-    mainCSSFile : "/css/style.css",
-    mainJSFile : "/js/main.js",
+    title : 'Core file',
+    favicon : '/favicon.ico',
+    mainCSSFile : '/css/style.css',
+    requireJSFile : '/js/require.js',
+    mainJS : 'js/main'
 }, function(err, tpl){
     if (!err){
         tpl.do({
