@@ -7,6 +7,4 @@ node_modules
 
 #Тесты
 test
-
-#FTP аккаунты
-.ftp.js
+package-lock.json

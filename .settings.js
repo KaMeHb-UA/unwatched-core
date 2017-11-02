@@ -1,4 +1,8 @@
-var templates = require('./.modules/templates');
+var __appDir = (a=>{a.pop();return a.join('/')})(process.mainModule.filename.split('/')),
+    __rootDir = (a=>{a.pop();a.pop();return a.join('/')})(__appDir.split('/')),
+    polymorph = require(__appDir + '/.modules/polymorph'),
+    templates = require(__rootDir + '/.modules/templates');
+global.dirs = {__appDir: __appDir, __rootDir: __rootDir};
 module.exports = {
     defaultIndex : /* Default single index file settings */{
         executable : false, // do execute?,
@@ -19,10 +23,10 @@ module.exports = {
     ],
     preventImplicitTransfer : 'isFileExecutable, stats, err, url, tmpStack, indexes, retFirstIndex, i, foundIndex, pH, headersClosed, app', // List of variables to prevent implicit passing to the page (to not prevent, clear this list)
     additionalModules : {
-        polymorph : require('./.modules/polymorph').mainInterface,
+        polymorph : polymorph.mainInterface,
         Template : templates.sync,
         createTemplate : templates.async,
-        Base64 : {encode:function(what){return Buffer.from(what).toString('base64')},decode:function(what,to='utf8'){return Buffer.from(what,'base64').toString(to)}},
+        base64 : {encode:function(what){return Buffer.from(what).toString('base64')},decode:function(what,to='utf8'){return Buffer.from(what,'base64').toString(to)}},
     },
     enableFTP : true,
 }
