@@ -166,7 +166,7 @@ http.createServer(function(request, response){
                     }
                 }
             });
-            global.dirs.__domainDir = df;
+            global.dirs.__domainDir = `${global.dirs.__rootDir}/${df}`;
             return df;
         })()), (err) => {
             if (err) app.err('server', err);

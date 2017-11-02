@@ -22,7 +22,7 @@ function Template(){
 exports.sync = function(template, encoding, replacements){
 	var a = new Template();
 	try {
-		a.text = fs.readFileSync(`${global.dirs.__rootDir}/${global.dirs.__domainDir}/templates/${template}.tpl`, encoding);
+		a.text = fs.readFileSync(`${global.dirs.__domainDir}/templates/${template}.tpl`, encoding);
 	} catch(e){
 		a.text = '';
 		console.error('LeNode error (1): cannot read template ' + template);
@@ -33,7 +33,7 @@ exports.sync = function(template, encoding, replacements){
 	return a;
 };
 exports.async = function(template, encoding, replacements, callback){
-	fs.readFile(`${global.dirs.__rootDir}/${global.dirs.__domainDir}/templates/${template}.tpl`, encoding, function(err, contents){
+	fs.readFile(`${global.dirs.__domainDir}/templates/${template}.tpl`, encoding, function(err, contents){
 		if(!err){
 			var ret = new Template();
 			ret.text = contents;
